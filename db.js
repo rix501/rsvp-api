@@ -9,7 +9,7 @@ const { Pool: pool } = poolModule;
   Invitado structure
 
  {
-  "id": "6d11713b-4988-410e-8b16-4024bd561a57",
+  "id": "6d11713b-4988-410e-8b16-4024b561a57",
   "nombreCompleto": 'Ricardo J. Vázquez',
   "primerNombreDefault": "Ricardo",
   "primerNombre": [
