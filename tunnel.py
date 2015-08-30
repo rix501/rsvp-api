@@ -117,8 +117,8 @@ try:
 
   cmd = ' '.join(args)
 
-  # if check_already_running(forwards):
-  #   sys.exit(0)
+  if check_already_running(forwards):
+    sys.exit(0)
 
   print 'Starting SSH tunnel: %s' % cmd
 
