@@ -1,6 +1,9 @@
 import r from 'rethinkdb';
+import poolModule from 'generic-pool';
 import invitadosJSON from './invitados.json';
 import gruposJSON from './grupos.json';
+
+const { Pool: pool } = poolModule;
 
 /**
   Invitado structure
@@ -47,6 +50,34 @@ export const connectionInfo = {
   port: process.env.RETHINKDB_PORT || 28015,
   db: 'la_gente'
 };
+
+const rPool = pool({
+  name: 'rethinkdb',
+  create(callback) {
+    r.connect(connectionInfo, callback);
+  },
+  destroy(conn) {
+    conn.close();
+  },
+  max: 10,
+  idleTimeoutMillis: 30000
+});
+
+function connect() {
+  return new Promise((resolve, reject) => {
+    rPool.acquire((err, conn) => {
+      if (err) {
+        return reject(err);
+      }
+
+      return resolve(conn);
+    });
+  });
+}
+
+function disconnect(conn) {
+  rPool.release(conn);
+}
 
 export function createDB() {
   let conn = null;
@@ -112,7 +143,7 @@ export function createDB() {
 
 export function getGrupo(id) {
   let conn;
-  return r.connect(connectionInfo)
+  return connect(connectionInfo)
   .then((c) => conn = c)
   .then(() => {
     return r.table('grupos')
@@ -128,14 +159,14 @@ export function getGrupo(id) {
   })
   .catch(() => ({}))
   .then((result) => {
-    conn.close();
+    disconnect(conn);
     return result;
   });
 }
 
 export function searchPrimerNombre(primerNombre) {
   let conn;
-  return r.connect(connectionInfo)
+  return connect(connectionInfo)
   .then((c) => conn = c)
   .then(() => {
     return r.table('invitados')
@@ -146,14 +177,14 @@ export function searchPrimerNombre(primerNombre) {
   })
   .catch(() => [])
   .then((result) => {
-    conn.close();
+    disconnect(conn);
     return result;
   });
 }
 
 export function searchApellido(apellido) {
   let conn;
-  return r.connect(connectionInfo)
+  return connect(connectionInfo)
   .then((c) => conn = c)
   .then(() => {
     return r.table('invitados')
@@ -164,14 +195,14 @@ export function searchApellido(apellido) {
   })
   .catch(() => [])
   .then((result) => {
-    conn.close();
+    disconnect(conn);
     return result;
   });
 }
 
 export function getInvitadoByNombreAndApellido(primerNombre, apellido) {
   let conn;
-  return r.connect(connectionInfo)
+  return connect(connectionInfo)
   .then((c) => conn = c)
   .then(() => {
     return r.table('invitados')
@@ -188,14 +219,14 @@ export function getInvitadoByNombreAndApellido(primerNombre, apellido) {
   .then((invitadosCursor) => invitadosCursor.next())
   .catch(() => ({}))
   .then((result) => {
-    conn.close();
+    disconnect(conn);
     return result;
   });
 }
 
 export function getGroupoByNombreAndApellido(primerNombre, apellido) {
   let conn;
-  return r.connect(connectionInfo)
+  return connect(connectionInfo)
   .then((c) => conn = c)
   .then(() => {
     return r.table('invitados')
@@ -224,7 +255,7 @@ export function getGroupoByNombreAndApellido(primerNombre, apellido) {
   })
   .catch(() => ({}))
   .then((result) => {
-    conn.close();
+    disconnect(conn);
     return result;
   });
 }
@@ -245,7 +276,7 @@ export function search(query = {}, grupoSearch = false) {
 
 export function rsvp(grupoId, invitados, plusOnes = 0) {
   let conn;
-  return r.connect(connectionInfo)
+  return connect(connectionInfo)
   .then((c) => conn = c)
   .then(() => {
     return r.table('rsvps')
@@ -261,7 +292,7 @@ export function rsvp(grupoId, invitados, plusOnes = 0) {
   .then(() => ({ message: 'sucess' }))
   .catch(() => ({ message: 'error' }))
   .then((result) => {
-    conn.close();
+    disconnect(conn);
     return result;
   });
 }
