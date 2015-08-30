@@ -82,8 +82,8 @@ function disconnect(conn) {
 export function createDB() {
   let conn = null;
   const createConnectionInfo = {
-    host: 'localhost',
-    port: 28015
+    host: process.env.RETHINKDB_HOST || 'localhost',
+    port: process.env.RETHINKDB_PORT || 28015,
   };
 
   return r.connect(createConnectionInfo)

@@ -1,1 +1,1 @@
-node tunnel.js && node main.js
+python tunnel.py && node main.js

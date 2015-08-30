@@ -13,8 +13,7 @@
     "body-parser": "^1.13.3",
     "express": "^4.13.3",
     "generic-pool": "^2.2.0",
-    "rethinkdb": "^2.1.0",
-    "tunnel-ssh": "^1.1.0"
+    "rethinkdb": "^2.1.0"
   },
   "devDependencies": {
     "babel-eslint": "^4.1.0",
