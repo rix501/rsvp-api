@@ -1,1 +1,0 @@
-python tunnel.py && node main.js

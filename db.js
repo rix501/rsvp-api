@@ -1,263 +1,92 @@
+import mongoose from 'mongoose';
 import r from 'rethinkdb';
-import poolModule from 'generic-pool';
+import _ from 'lodash';
 import invitadosJSON from './invitados.json';
 import gruposJSON from './grupos.json';
 
-const { Pool: pool } = poolModule;
+mongoose.connect(process.env.MONGOHQ_URL || 'mongodb://localhost/test');
+const { Schema } = mongoose;
 
-/**
-  Invitado structure
+const Invitado = mongoose.model('Invitado', new Schema({
+  nombreCompleto: String,
+  primerNombreDefault: String,
+  primerNombre: [String],
+  apellidoDefault: String,
+  apellido: [String],
+  grupo: Number
+}));
 
- {
-  "id": "6d11713b-4988-410e-8b16-4024b561a57",
-  "nombreCompleto": 'Ricardo J. Vázquez',
-  "primerNombreDefault": "Ricardo",
-  "primerNombre": [
-    "Ricardo"
-  ],
-  "apellidoDefault": "Vázquez",
-  "apellido": [
-    "Vázquez",
-    "Vazquez"
-  ],
-  "grupo": "6d11713b-4988-410e-8b16-4024bd561a57"
- }
-*/
+const Grupo = mongoose.model('Grupo', new Schema({
+  id: Number,
+  plusOnes: Number
+}));
 
-/**
-  Grupo structure
-
- {
-  "id": "6d11713b-4988-410e-8b16-4024bd561a57",
-  "plusOnes": 1
- }
-*/
-
-/**
-  RSVP structure
-
- {
-  "id": "6d11713b-4988-410e-8b16-4024bd561a57", // same as grupo id
-  "invitados": [
-    "6d11713b-4988-410e-8b16-4024bd561a57"
-  ]
-  "plusOnes": 0
- }
-*/
-
-export const connectionInfo = {
-  host: process.env.RETHINKDB_HOST || 'localhost',
-  port: process.env.RETHINKDB_PORT || 28015,
-  db: 'la_gente'
-};
-
-const rPool = pool({
-  name: 'rethinkdb',
-  create(callback) {
-    r.connect(connectionInfo, callback);
-  },
-  destroy(conn) {
-    conn.close();
-  },
-  max: 10,
-  idleTimeoutMillis: 30000
-});
-
-function connect() {
-  return new Promise((resolve, reject) => {
-    rPool.acquire((err, conn) => {
-      if (err) {
-        return reject(err);
-      }
-
-      return resolve(conn);
-    });
-  });
-}
-
-function disconnect(conn) {
-  rPool.release(conn);
-}
+const RSVP = mongoose.model('RSVP', new Schema({
+  id: Number,
+  plusOnes: Number,
+  invitados: [Schema.Types.ObjectId]
+}));
 
 export function createDB() {
-  let conn = null;
-  const createConnectionInfo = {
-    host: process.env.RETHINKDB_HOST || 'localhost',
-    port: process.env.RETHINKDB_PORT || 28015,
-  };
-
-  return r.connect(createConnectionInfo)
-  .then((c) => conn = c)
-  .then(() => r.dbCreate('la_gente').run(conn))
-  .catch((err) => {
-    if (err.name !== 'ReqlOpFailedError') {
-      return Promise.reject(err);
-    }
-  })
-  .then(() => {
-    const invitados = r
-      .db('la_gente')
-      .tableCreate('invitados')
-      .run(conn)
-      .then(() => r.db('la_gente').table('invitados').indexCreate('grupo').run(conn))
-      .catch((err) => {
-        if (err.name === 'ReqlOpFailedError') {
-          return r.db('la_gente').table('invitados').delete().run(conn);
-        }
-        return Promise.reject(err);
-      });
-
-    const grupos = r
-      .db('la_gente')
-      .tableCreate('grupos')
-      .run(conn)
-      .catch((err) => {
-        if (err.name === 'ReqlOpFailedError') {
-          return r.db('la_gente').table('grupos').delete().run(conn);
-        }
-        return Promise.reject(err);
-      });
-
-    const rsvps = r
-      .db('la_gente')
-      .tableCreate('rsvps')
-      .run(conn)
-      .catch((err) => {
-        if (err.name !== 'ReqlOpFailedError') {
-          return Promise.reject(err);
-        }
-      });
-
-    return Promise.all([ invitados, grupos, rsvps ]);
-  })
-  .then(() => {
-    return Promise.all([
-      r.db('la_gente').table('grupos').insert(gruposJSON).run(conn),
-      r.db('la_gente').table('invitados').insert(invitadosJSON).run(conn)
-    ]);
-  })
-  .then((...args) => console.log(...args))
-  .catch((...args) => console.error(...args))
-  .then(() => conn.close());
+  return Promise.all([
+    Invitado.remove().then(() => Invitado.create(invitadosJSON)),
+    Grupo.remove().then(() => Grupo.create(gruposJSON))
+  ]);
 }
 
 export function getGrupo(id) {
-  let conn;
-  return connect(connectionInfo)
-  .then((c) => conn = c)
-  .then(() => {
-    return r.table('grupos')
-    .get(id)
-    .merge((grupo) => {
-      return {
-        invitados: r.table('invitados')
-          .getAll(grupo('id'), { index: 'grupo' })
-          .coerceTo('array')
-      };
-    })
-    .run(conn);
-  })
-  .catch(() => ({}))
+  return Promise.all([
+    Grupo.findOne({id}),
+    Invitado.find({grupo: id}).select('-__v -_id -grupo')
+  ])
   .then((result) => {
-    disconnect(conn);
-    return result;
-  });
+    const [grupo, invitados] = result;
+    return _.assign({}, _.pick(grupo, ['id', 'plusOnes']), { invitados });
+  })
+  .catch(() => ({}));
 }
 
 export function searchPrimerNombre(primerNombre) {
-  let conn;
-  return connect(connectionInfo)
-  .then((c) => conn = c)
-  .then(() => {
-    return r.table('invitados')
-    .concatMap((invitado) => invitado('primerNombre'))
-    .distinct()
-    .filter((nombre) => nombre.match(`(?i)^${primerNombre}`))
-    .run(conn);
+  return Invitado
+  .find()
+  .select('primerNombre')
+  .then((invitados) => {
+    const allNombres = _.uniq(_.flatten(_.map(invitados, (invitado) => _.get(invitado, 'primerNombre'))));
+    const nombreTest = new RegExp(`^${primerNombre}`, 'i');
+    return _.filter(allNombres, nombreTest.test.bind(nombreTest));
   })
-  .catch(() => [])
-  .then((result) => {
-    disconnect(conn);
-    return result;
-  });
+  .catch(() => []);
 }
 
 export function searchApellido(apellido) {
-  let conn;
-  return connect(connectionInfo)
-  .then((c) => conn = c)
-  .then(() => {
-    return r.table('invitados')
-    .concatMap((invitado) => invitado('apellido'))
-    .distinct()
-    .filter((nombre) => nombre.match(`(?i)^${apellido}`))
-    .run(conn);
+  return Invitado
+  .find()
+  .select('apellido')
+  .then((invitados) => {
+    const allApellidos = _.uniq(_.flatten(_.map(invitados, (invitado) => _.get(invitado, 'apellido'))));
+    const apellidoTest = new RegExp(`^${apellido}`, 'i');
+    return _.filter(allApellidos, apellidoTest.test.bind(apellidoTest));
   })
-  .catch(() => [])
-  .then((result) => {
-    disconnect(conn);
-    return result;
-  });
+  .catch(() => []);
 }
 
 export function getInvitadoByNombreAndApellido(primerNombre, apellido) {
-  let conn;
-  return connect(connectionInfo)
-  .then((c) => conn = c)
-  .then(() => {
-    return r.table('invitados')
-    .filter((invitado) => {
-      return invitado('primerNombre')
-        .contains(primerNombre)
-        .and(
-          invitado('apellido')
-          .contains(apellido)
-        );
-    })
-    .run(conn);
+  return Invitado
+  .findOne({
+    primerNombre: { $in: [primerNombre] },
+    apellido: { $in: [apellido] },
   })
-  .then((invitadosCursor) => invitadosCursor.next())
-  .catch(() => ({}))
-  .then((result) => {
-    disconnect(conn);
-    return result;
-  });
+  .select('-__v')
+  .then((invitado) => invitado)
+  .catch(() => ({}));
 }
 
 export function getGroupoByNombreAndApellido(primerNombre, apellido) {
-  let conn;
-  return connect(connectionInfo)
-  .then((c) => conn = c)
-  .then(() => {
-    return r.table('invitados')
-    .filter((invitado) => {
-      return invitado('primerNombre')
-        .contains(primerNombre)
-        .and(
-          invitado('apellido')
-          .contains(apellido)
-        );
-    })
-    .run(conn);
-  })
-  .then((invitadosCursor) => invitadosCursor.next())
+  return getInvitadoByNombreAndApellido(primerNombre, apellido)
   .then((invitado) => {
-    return r.table('grupos')
-    .get(invitado.grupo)
-    .merge((grupo) => {
-      return {
-        invitados: r.table('invitados')
-          .getAll(grupo('id'), { index: 'grupo' })
-          .coerceTo('array')
-      };
-    })
-    .run(conn);
+    return getGrupo(invitado.grupo);
   })
-  .catch(() => ({}))
-  .then((result) => {
-    disconnect(conn);
-    return result;
-  });
+  .catch(() => ({}));
 }
 
 export function search(query = {}, grupoSearch = false) {
