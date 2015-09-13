@@ -5,7 +5,9 @@ import { createDB, getGrupo, search, rsvp } from './db';
 
 const app = express();
 
-app.use(cors());
+app.use(cors({
+  origin: 'http://paolayricardo.com'
+}));
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
