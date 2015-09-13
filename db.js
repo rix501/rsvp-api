@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import r from 'rethinkdb';
 import _ from 'lodash';
 import invitadosJSON from './invitados.json';
 import gruposJSON from './grupos.json';
@@ -37,7 +36,7 @@ export function createDB() {
 export function getGrupo(id) {
   return Promise.all([
     Grupo.findOne({id}),
-    Invitado.find({grupo: id}).select('-__v -_id -grupo')
+    Invitado.find({grupo: id}).select('-__v -grupo')
   ])
   .then((result) => {
     const [grupo, invitados] = result;
@@ -104,24 +103,16 @@ export function search(query = {}, grupoSearch = false) {
 }
 
 export function rsvp(grupoId, invitados, plusOnes = 0) {
-  let conn;
-  return connect(connectionInfo)
-  .then((c) => conn = c)
-  .then(() => {
-    return r.table('rsvps')
-    .insert({
-      id: grupoId,
-      invitados,
-      plusOnes
-    }, {
-      conflict: 'replace'
-    })
-    .run(conn);
+  return RSVP
+  .update({
+    id: grupoId
+  }, {
+    id: grupoId,
+    invitados,
+    plusOnes
+  }, {
+    upsert: true
   })
   .then(() => ({ message: 'sucess' }))
-  .catch(() => ({ message: 'error' }))
-  .then((result) => {
-    disconnect(conn);
-    return result;
-  });
+  .catch(() => ({ message: 'error' }));
 }
