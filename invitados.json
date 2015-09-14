@@ -1,29 +1,29 @@
 [{
     "nombreCompleto": "Katia M. Irizarry",
     "primerNombreDefault": "Katia",
-    "primerNombre": ["Katia"],
+    "primerNombre": ["katia"],
     "apellidoDefault": "Irizarry",
-    "apellido": ["Irizarry"],
+    "apellido": ["irizarry"],
     "grupo": 0
 }, {
     "nombreCompleto": "Héctor A. Santiago",
     "primerNombreDefault": "Hector",
-    "primerNombre": ["Hector", "Héctor", "Filo"],
+    "primerNombre": ["hector", "héctor", "filo"],
     "apellidoDefault": "Santiago",
-    "apellido": ["Santiago"],
+    "apellido": ["santiago"],
     "grupo": 0
 }, {
     "nombreCompleto": "Naomi A. Santiago",
     "primerNombreDefault": "Naomi",
-    "primerNombre": ["Naomi"],
+    "primerNombre": ["naomi"],
     "apellidoDefault": "Santiago",
-    "apellido": ["Santiago"],
+    "apellido": ["santiago"],
     "grupo": 0
 }, {
   "nombreCompleto": "Antoine Parenton",
   "primerNombreDefault": "Antoine",
-  "primerNombre": ["Antoine"],
+  "primerNombre": ["antoine"],
   "apellidoDefault": "Parenton",
-  "apellido": ["Parenton"],
+  "apellido": ["parenton"],
   "grupo": 1
 }]
