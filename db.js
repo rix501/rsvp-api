@@ -9,22 +9,22 @@ const { Schema } = mongoose;
 const Invitado = mongoose.model('Invitado', new Schema({
   nombreCompleto: String,
   primerNombreDefault: String,
-  primerNombre: [String],
+  primerNombre: { type: [String], index: true },
   apellidoDefault: String,
-  apellido: [String],
-  grupo: Number
-}));
+  apellido: { type: [String], index: true },
+  grupo: { type: Number, index: true }
+}, { autoIndex: false }));
 
 const Grupo = mongoose.model('Grupo', new Schema({
-  id: Number,
+  id: { type: Number, index: true },
   plusOnes: Number
-}));
+}, { autoIndex: false }));
 
 const RSVP = mongoose.model('RSVP', new Schema({
-  id: Number,
+  id: { type: Number, index: true },
   plusOnes: Number,
   invitados: [Schema.Types.ObjectId]
-}));
+}, { autoIndex: false }));
 
 export function createDB() {
   return Promise.all([
