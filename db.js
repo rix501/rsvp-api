@@ -41,8 +41,7 @@ export function getGrupo(id) {
   .then((result) => {
     const [grupo, invitados] = result;
     return _.assign({}, _.pick(grupo, ['id', 'plusOnes']), { invitados });
-  })
-  .catch(() => ({}));
+  }, () => ({}));
 }
 
 export function searchPrimerNombre(primerNombre) {
@@ -53,8 +52,7 @@ export function searchPrimerNombre(primerNombre) {
     const allNombres = _.uniq(_.flatten(_.map(invitados, (invitado) => _.get(invitado, 'primerNombre'))));
     const nombreTest = new RegExp(`^${primerNombre}`, 'i');
     return _.filter(allNombres, nombreTest.test.bind(nombreTest));
-  })
-  .catch(() => []);
+  }, () => []);
 }
 
 export function searchApellido(apellido) {
@@ -65,8 +63,7 @@ export function searchApellido(apellido) {
     const allApellidos = _.uniq(_.flatten(_.map(invitados, (invitado) => _.get(invitado, 'apellido'))));
     const apellidoTest = new RegExp(`^${apellido}`, 'i');
     return _.filter(allApellidos, apellidoTest.test.bind(apellidoTest));
-  })
-  .catch(() => []);
+  }, () => []);
 }
 
 export function getInvitadoByNombreAndApellido(primerNombre, apellido) {
@@ -76,16 +73,14 @@ export function getInvitadoByNombreAndApellido(primerNombre, apellido) {
     apellido: { $in: [apellido] },
   })
   .select('-__v')
-  .then((invitado) => invitado)
-  .catch(() => ({}));
+  .then((invitado) => invitado, () => ({}));
 }
 
 export function getGroupoByNombreAndApellido(primerNombre, apellido) {
   return getInvitadoByNombreAndApellido(primerNombre, apellido)
   .then((invitado) => {
     return getGrupo(invitado.grupo);
-  })
-  .catch(() => ({}));
+  }, () => ({}));
 }
 
 export function search(query = {}, grupoSearch = false) {
@@ -100,6 +95,9 @@ export function search(query = {}, grupoSearch = false) {
   } else if (!!apellido) {
     return searchApellido(apellido);
   }
+
+  // catch all for whatevs
+  return Promise.resolve({});
 }
 
 export function rsvp(grupoId, invitados, plusOnes = 0) {
@@ -113,6 +111,5 @@ export function rsvp(grupoId, invitados, plusOnes = 0) {
   }, {
     upsert: true
   })
-  .then(() => ({ message: 'sucess' }))
-  .catch(() => ({ message: 'error' }));
+  .then(() => ({ message: 'sucess' }), () => ({ message: 'error' }));
 }
