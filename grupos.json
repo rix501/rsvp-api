@@ -1,10 +1,13 @@
 [{
   "id": 0,
-  "plusOnes": 0
+  "plusOnes": 0,
+  "beach": false
 }, {
   "id": 1,
-  "plusOnes": 1
+  "plusOnes": 1,
+  "beach": false
 }, {
   "id": 2,
-  "plusOnes": 0
+  "plusOnes": 0,
+  "beach": true
 }]

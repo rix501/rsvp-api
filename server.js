@@ -23,8 +23,8 @@ app.get('/grupos/:id', (req, res) => {
 });
 
 app.post('/rsvp', (req, res) => {
-  const { grupo, invitados, plusOnes } = req.body;
-  rsvp(grupo, invitados, plusOnes).then(res.json.bind(res));
+  const { grupo, invitados, plusOnes, beach } = req.body;
+  rsvp(grupo, invitados, plusOnes, beach).then(res.json.bind(res));
 });
 
 const server = app.listen(process.env.PORT || 3000, () => {

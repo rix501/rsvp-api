@@ -17,12 +17,14 @@ const Invitado = mongoose.model('Invitado', new Schema({
 
 const Grupo = mongoose.model('Grupo', new Schema({
   id: { type: Number, index: true },
-  plusOnes: Number
+  plusOnes: Number,
+  beach: Boolean
 }, { autoIndex: false }));
 
 const RSVP = mongoose.model('RSVP', new Schema({
   id: { type: Number, index: true },
   plusOnes: Number,
+  beach: Boolean,
   invitados: [Schema.Types.ObjectId]
 }, { autoIndex: false }));
 
@@ -40,7 +42,7 @@ export function getGrupo(id) {
   ])
   .then((result) => {
     const [grupo, invitados] = result;
-    return _.assign({}, _.pick(grupo, ['id', 'plusOnes']), { invitados });
+    return _.assign({}, _.pick(grupo, ['id', 'plusOnes', 'beach']), { invitados });
   }, () => ({}));
 }
 
@@ -100,14 +102,15 @@ export function search(query = {}, grupoSearch = false) {
   return Promise.resolve({});
 }
 
-export function rsvp(grupoId, invitados, plusOnes = 0) {
+export function rsvp(grupoId, invitados, plusOnes = 0, beach = false) {
   return RSVP
   .update({
     id: grupoId
   }, {
     id: grupoId,
     invitados,
-    plusOnes
+    plusOnes,
+    beach
   }, {
     upsert: true
   })
