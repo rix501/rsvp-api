@@ -5,9 +5,7 @@ import { createDB, getGrupo, search, rsvp } from './db';
 
 const app = express();
 
-app.use(cors({
-  origin: 'http://paolayricardo.com'
-}));
+app.use(cors());
 app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
@@ -25,8 +23,8 @@ app.get('/grupos/:id', (req, res) => {
 });
 
 app.post('/rsvp', (req, res) => {
-  const { groupo, invitados, plusOnes } = req.body;
-  rsvp(groupo, invitados, plusOnes).then(res.json.bind(res));
+  const { grupo, invitados, plusOnes } = req.body;
+  rsvp(grupo, invitados, plusOnes).then(res.json.bind(res));
 });
 
 const server = app.listen(process.env.PORT || 3000, () => {

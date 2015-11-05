@@ -4,4 +4,7 @@
 }, {
   "id": 1,
   "plusOnes": 1
+}, {
+  "id": 2,
+  "plusOnes": 0
 }]

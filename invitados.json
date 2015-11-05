@@ -26,4 +26,18 @@
   "apellidoDefault": "Parenton",
   "apellido": ["parenton"],
   "grupo": 1
+}, {
+  "nombreCompleto": "Bianca Gónzalez",
+  "primerNombreDefault": "Bianca",
+  "primerNombre": ["bianca"],
+  "apellidoDefault": "Gónzalez",
+  "apellido": ["gónzalez", "gonzalez"],
+  "grupo": 2
+}, {
+  "nombreCompleto": "Josef Escobar",
+  "primerNombreDefault": "Josef",
+  "primerNombre": ["josef", "joseph"],
+  "apellidoDefault": "Escobar",
+  "apellido": ["escobar"],
+  "grupo": 2
 }]
