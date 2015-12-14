@@ -16,7 +16,6 @@ app.get('/search', (req, res) => {
 });
 
 app.get('/search/grupo', (req, res) => {
-  console.log(req.query)
   search(req.query, true)
     .then(res.json.bind(res))
     .catch((err) => res.status(500).json({error: err}));
