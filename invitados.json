@@ -40,4 +40,19 @@
   "apellidoDefault": "Escobar",
   "apellido": ["escobar"],
   "grupo": 2
-}]
+}, {
+  "nombreCompleto": "Gabriela Gónzalez",
+  "primerNombreDefault": "Gabriela",
+  "primerNombre": ["gaba", "gabriela", "gaby"],
+  "apellidoDefault": "Gónzalez",
+  "apellido": ["gonzalez", "gónzalez", "gonzalez marra"],
+  "grupo": 5
+}, {
+  "nombreCompleto": "Ron Hill",
+  "primerNombreDefault": "Ron",
+  "primerNombre": ["ron", "ron"],
+  "apellidoDefault": "hill",
+  "apellido": ["Hill"],
+  "grupo": 5
+  }]
+
