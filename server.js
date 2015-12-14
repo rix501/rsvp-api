@@ -12,20 +12,20 @@ app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x
 app.get('/search', (req, res) => {
   search(req.query)
     .then(res.json.bind(res))
-    .catch((err) => res.status(500).json({error: err}));
+    .catch((err) => res.status(404).json({error: err}));
 });
 
 app.get('/search/grupo', (req, res) => {
   search(req.query, true)
     .then(res.json.bind(res))
-    .catch((err) => res.status(500).json({error: err}));
+    .catch((err) => res.status(404).json({error: err}));
 });
 
 app.get('/grupos/:id', (req, res) => {
   const grupoID = parseInt(req.params.id, 10);
   getGrupo(grupoID)
     .then(res.json.bind(res))
-    .catch((err) => res.status(500).json({error: err}));
+    .catch((err) => res.status(404).json({error: err}));
 });
 
 app.post('/rsvp', (req, res) => {
