@@ -10,16 +10,23 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use(bodyParser.urlencoded({ extended: true })); // for parsing application/x-www-form-urlencoded
 
 app.get('/search', (req, res) => {
-  search(req.query).then(res.json.bind(res));
+  search(req.query)
+    .then(res.json.bind(res))
+    .catch((err) => res.status(500).json({error: err}));
 });
 
 app.get('/search/grupo', (req, res) => {
-  search(req.query, true).then(res.json.bind(res));
+  console.log(req.query)
+  search(req.query, true)
+    .then(res.json.bind(res))
+    .catch((err) => res.status(500).json({error: err}));
 });
 
 app.get('/grupos/:id', (req, res) => {
   const grupoID = parseInt(req.params.id, 10);
-  getGrupo(grupoID).then(res.json.bind(res));
+  getGrupo(grupoID)
+    .then(res.json.bind(res))
+    .catch((err) => res.status(500).json({error: err}));
 });
 
 app.post('/rsvp', (req, res) => {

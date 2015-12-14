@@ -3,6 +3,7 @@ import _ from 'lodash';
 import invitadosJSON from './invitados.json';
 import gruposJSON from './grupos.json';
 
+mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGOHQ_URL || 'mongodb://localhost/test');
 const { Schema } = mongoose;
 
@@ -30,42 +31,47 @@ const RSVP = mongoose.model('RSVP', new Schema({
 
 export function createDB() {
   return Promise.all([
-    Invitado.remove().then(() => Invitado.create(invitadosJSON)),
-    Grupo.remove().then(() => Grupo.create(gruposJSON))
+    Invitado.remove().exec().then(() => Invitado.create(invitadosJSON).exec()),
+    Grupo.remove().exec().then(() => Grupo.create(gruposJSON).exec())
   ]);
 }
 
 export function getGrupo(id) {
   return Promise.all([
-    Grupo.findOne({id}),
-    Invitado.find({grupo: id}).select('-__v -grupo')
+    Grupo.findOne({id}).exec(),
+    Invitado.find({grupo: id}).select('-__v -grupo').exec()
   ])
   .then((result) => {
     const [grupo, invitados] = result;
     return _.assign({}, _.pick(grupo, ['id', 'plusOnes', 'beach']), { invitados });
-  }, () => ({}));
+  })
+  .catch(() => Promise.reject('Not Found'));
 }
 
 export function searchPrimerNombre(primerNombre) {
   return Invitado
   .find()
   .select('primerNombre')
+  .exec()
   .then((invitados) => {
     const allNombres = _.uniq(_.flatten(_.map(invitados, (invitado) => _.get(invitado, 'primerNombre'))));
     const nombreTest = new RegExp(`^${primerNombre}`, 'i');
     return _.filter(allNombres, nombreTest.test.bind(nombreTest));
-  }, () => []);
+  })
+  .catch(() => Promise.reject('Not Found'));
 }
 
 export function searchApellido(apellido) {
   return Invitado
   .find()
   .select('apellido')
+  .exec()
   .then((invitados) => {
     const allApellidos = _.uniq(_.flatten(_.map(invitados, (invitado) => _.get(invitado, 'apellido'))));
     const apellidoTest = new RegExp(`^${apellido}`, 'i');
     return _.filter(allApellidos, apellidoTest.test.bind(apellidoTest));
-  }, () => []);
+  })
+  .catch(() => Promise.reject('Not Found'));
 }
 
 export function getInvitadoByNombreAndApellido(primerNombre, apellido) {
@@ -75,14 +81,15 @@ export function getInvitadoByNombreAndApellido(primerNombre, apellido) {
     apellido: { $in: [apellido] },
   })
   .select('-__v')
-  .then((invitado) => invitado, () => ({}));
+  .exec()
+  .then((invitado) => invitado)
+  .catch(() => Promise.reject('Not Found'));
 }
 
 export function getGroupoByNombreAndApellido(primerNombre, apellido) {
   return getInvitadoByNombreAndApellido(primerNombre, apellido)
-  .then((invitado) => {
-    return getGrupo(invitado.grupo);
-  }, () => ({}));
+  .then((invitado) => getGrupo(invitado.grupo))
+  .catch(() => Promise.reject('Not Found'));
 }
 
 export function search(query = {}, grupoSearch = false) {
