@@ -1,58 +1,857 @@
 [{
-    "nombreCompleto": "Katia M. Irizarry",
-    "primerNombreDefault": "Katia",
-    "primerNombre": ["katia"],
-    "apellidoDefault": "Irizarry",
-    "apellido": ["irizarry"],
-    "grupo": 0
-}, {
-    "nombreCompleto": "Héctor A. Santiago",
-    "primerNombreDefault": "Hector",
-    "primerNombre": ["hector", "héctor", "filo"],
-    "apellidoDefault": "Santiago",
-    "apellido": ["santiago"],
-    "grupo": 0
-}, {
-    "nombreCompleto": "Naomi A. Santiago",
-    "primerNombreDefault": "Naomi",
-    "primerNombre": ["naomi"],
-    "apellidoDefault": "Santiago",
-    "apellido": ["santiago"],
-    "grupo": 0
-}, {
-  "nombreCompleto": "Antoine Parenton",
-  "primerNombreDefault": "Antoine",
-  "primerNombre": ["antoine"],
-  "apellidoDefault": "Parenton",
-  "apellido": ["parenton"],
-  "grupo": 1
-}, {
-  "nombreCompleto": "Bianca Gónzalez",
-  "primerNombreDefault": "Bianca",
-  "primerNombre": ["bianca"],
-  "apellidoDefault": "Gónzalez",
-  "apellido": ["gónzalez", "gonzalez"],
-  "grupo": 2
-}, {
-  "nombreCompleto": "Josef Escobar",
-  "primerNombreDefault": "Josef",
-  "primerNombre": ["josef", "joseph"],
-  "apellidoDefault": "Escobar",
-  "apellido": ["escobar"],
-  "grupo": 2
-}, {
-  "nombreCompleto": "Gabriela Gónzalez",
-  "primerNombreDefault": "Gabriela",
-  "primerNombre": ["gaba", "gabriela", "gaby"],
-  "apellidoDefault": "Gónzalez",
-  "apellido": ["gonzalez", "gónzalez", "gonzalez marra"],
-  "grupo": 5
-}, {
-  "nombreCompleto": "Ron Hill",
-  "primerNombreDefault": "Ron",
-  "primerNombre": ["ron", "ron"],
-  "apellidoDefault": "hill",
-  "apellido": ["Hill"],
-  "grupo": 5
-  }]
-
+      "nombreCompleto": "Katia M. Irizarry",
+      "primerNombreDefault": "Katia",
+      "primerNombre": ["katia"],
+      "apellidoDefault": "Irizarry",
+      "apellido": ["irizarry"],
+      "grupo": 0
+  }, {
+      "nombreCompleto": "Héctor A. Santiago",
+      "primerNombreDefault": "Hector",
+      "primerNombre": ["hector", "héctor", "filo"],
+      "apellidoDefault": "Santiago",
+      "apellido": ["santiago"],
+      "grupo": 0
+  }, {
+      "nombreCompleto": "Naomi A. Santiago",
+      "primerNombreDefault": "Naomi",
+      "primerNombre": ["naomi"],
+      "apellidoDefault": "Santiago",
+      "apellido": ["santiago"],
+      "grupo": 0
+  }, {
+      "nombreCompleto": "Antoine Parenton",
+      "primerNombreDefault": "Antoine",
+      "primerNombre": ["antoine"],
+      "apellidoDefault": "Parenton",
+      "apellido": ["parenton"],
+      "grupo": 1
+  }, {
+      "nombreCompleto": "Bianca Gónzalez",
+      "primerNombreDefault": "Bianca",
+      "primerNombre": ["bianca"],
+      "apellidoDefault": "Gónzalez",
+      "apellido": ["gónzalez", "gonzalez"],
+      "grupo": 2
+  }, {
+      "nombreCompleto": "Josef Escobar",
+      "primerNombreDefault": "Josef",
+      "primerNombre": ["josef", "joseph"],
+      "apellidoDefault": "Escobar",
+      "apellido": ["escobar"],
+      "grupo": 2
+  }, {
+      "nombreCompleto": "Zulma Gonzalez",
+      "primerNombreDefault": "Zulma",
+      "primerNombre": ["susie", "titi susie"],
+      "apellidoDefault": "Gonzalez",
+      "apellido": ["gonzalez borges", "gonzalez"],
+      "grupo": 3
+  },
+  {
+      "nombreCompleto": "Jose Juan Borges",
+      "primerNombreDefault": "Jose Juan",
+      "primerNombre": ["jose juan", "jose"],
+      "apellidoDefault": "Borges",
+      "apellido": ["borges gonzalez", "borges"],
+      "grupo": 3
+  },
+  {
+      "nombreCompleto": "Jose Juan Borges",
+      "primerNombreDefault": "Jose Juan",
+      "primerNombre": ["jose juan", "jose", "tio jose"],
+      "apellidoDefault": "Borges",
+      "apellido": ["borges"],
+      "grupo": 3
+  },
+  {
+      "nombreCompleto": "Giselle Diaz",
+      "primerNombreDefault": "Giselle",
+      "primerNombre": ["gisi", "giselle"],
+      "apellidoDefault": "Diaz",
+      "apellido": ["diaz"],
+      "grupo": 3
+  },
+  {
+      "nombreCompleto": "Luli Marra",
+      "primerNombreDefault": "Luli",
+      "primerNombre": ["mami", "luli"],
+      "apellidoDefault": "Marra",
+      "apellido": ["marra"],
+      "grupo": 4
+  },
+  {
+      "nombreCompleto": "Americo Gónzalez",
+      "primerNombreDefault": "Americo",
+      "primerNombre": ["americo", "papi"],
+      "apellidoDefault": "Gónzalez",
+      "apellido": ["gonzalez", "gónzalez", "gonzalez aquino"],
+      "grupo": 4
+  },
+  {
+      "nombreCompleto": "Gabriela Gónzalez",
+      "primerNombreDefault": "Gabriela",
+      "primerNombre": ["gaba", "gabriela", "gaby"],
+      "apellidoDefault": "Gónzalez",
+      "apellido": ["gonzalez", "gónzalez", "gonzalez marra"],
+      "grupo": 5
+  }, {
+      "nombreCompleto": "Ron Hill",
+      "primerNombreDefault": "Ron",
+      "primerNombre": ["ron", "ron"],
+      "apellidoDefault": "hill",
+      "apellido": ["Hill"],
+      "grupo": 5
+  },
+  {
+      "nombreCompleto": "Sandy Gónzalez",
+      "primerNombreDefault": "Sandy",
+      "primerNombre": ["sandy", "sandra"],
+      "apellidoDefault": "Gónzalez",
+      "apellido": ["gonzalez", "gónzalez", "gonzalez aquino"],
+      "grupo": 6
+  },
+  {
+      "nombreCompleto": "Zulma Gónzalez Aquino",
+      "primerNombreDefault": "Zulma",
+      "primerNombre": ["abeli zulmi", "zulma", "doña zulma"],
+      "apellidoDefault": "Gónzalez Aquino",
+      "apellido": ["gonzalez", "gónzalez", "gonzalez aquino"],
+      "grupo": 6
+  },
+  {
+      "nombreCompleto": "Laura Pagan",
+      "primerNombreDefault": "Laura",
+      "primerNombre": ["laura", "laura isabel"],
+      "apellidoDefault": "Pagan",
+      "apellido": ["pagan", "pagan gonzalez"],
+      "grupo": 6
+  },
+  {
+      "nombreCompleto": "Juan Carlos Pagan",
+      "primerNombreDefault": "Juan Carlos",
+      "primerNombre": ["juan carlos", "juan"],
+      "apellidoDefault": "Pagan",
+      "apellido": ["pagan", "pagan gonzalez"],
+      "grupo": 6
+  },
+  {
+      "nombreCompleto": "Samuel Marra",
+      "primerNombreDefault": "Samuel",
+      "primerNombre": ["samuel", "samuel g"],
+      "apellidoDefault": "Marra",
+      "apellido": ["marra"],
+      "grupo": 7
+  }, {
+      "nombreCompleto": "Cuqui Aponte",
+      "primerNombreDefault": "Cuqui",
+      "primerNombre": ["cuqui", "maria"],
+      "apellidoDefault": "Aponte",
+      "apellido": ["marra", "aponte", "marra aponte"],
+      "grupo": 7
+  },
+  {
+      "nombreCompleto": "Carlos Marra",
+      "primerNombreDefault": "Carlos",
+      "primerNombre": ["carlos", "carlitos", "tio carlos"],
+      "apellidoDefault": "Marra",
+      "apellido": ["marra", "marra aponte"],
+      "grupo": 7
+  },
+  {
+      "nombreCompleto": "Carlos Gónzalez",
+      "primerNombreDefault": "Carlos",
+      "primerNombre": ["carlos", "tio carlos"],
+      "apellidoDefault": "Gónzalez",
+      "apellido": ["gónzalez", "gonzalez", "gonzalez aquino"],
+      "grupo": 8
+  },
+  {
+      "nombreCompleto": "Marines Castro",
+      "primerNombreDefault": "Marines",
+      "primerNombre": ["marines", "titi marines", "maria ines"],
+      "apellidoDefault": "Castro",
+      "apellido": ["castro", "gonzalez castro", "castro gonzalez"],
+      "grupo": 8
+  },
+  {
+      "nombreCompleto": "Ingrid Franco",
+      "primerNombreDefault": "Ingrid",
+      "primerNombre": ["ingrid"],
+      "apellidoDefault": "Franco",
+      "apellido": ["franco"],
+      "grupo": 9
+  },
+  {
+      "nombreCompleto": "Lucas Llado",
+      "primerNombreDefault": "Lucas",
+      "primerNombre": ["lucas"],
+      "apellidoDefault": "Llado",
+      "apellido": ["llado"],
+      "grupo": 9
+  },
+  {
+      "nombreCompleto": "Giselle O’Neill",
+      "primerNombreDefault": "Giselle",
+      "primerNombre": ["giselle", "gigi"],
+      "apellidoDefault": "O'Neill",
+      "apellido": ["o’neill"],
+      "grupo": 10
+  },
+  {
+      "nombreCompleto": "Antonio Ricardo Febles",
+      "primerNombreDefault": "Antonio",
+      "primerNombre": ["antonio"],
+      "apellidoDefault": "Febles",
+      "apellido": ["febles"],
+      "grupo": 10
+  },
+  {
+      "nombreCompleto": "Michelle Konar",
+      "primerNombreDefault": "Michelle",
+      "primerNombre": ["michelle"],
+      "apellidoDefault": "Konar",
+      "apellido": ["konar"],
+      "grupo": 11
+  },
+  {
+      "nombreCompleto": "Ricardo Marra",
+      "primerNombreDefault": "Ricardo",
+      "primerNombre": ["ricardo", "richi", "tio richi"],
+      "apellidoDefault": "Marra",
+      "apellido": ["marra", "marra aponte"],
+      "grupo": 12
+  },
+  {
+      "nombreCompleto": "Sheila Sanchez",
+      "primerNombreDefault": "Sheila",
+      "primerNombre": ["sheila"],
+      "apellidoDefault": "Sanchez",
+      "apellido": ["sanchez"],
+      "grupo": 12
+  },
+  {
+      "nombreCompleto": "Galileo Marra",
+      "primerNombreDefault": "Galileo",
+      "primerNombre": ["galileo", "galin", "tio galin"],
+      "apellidoDefault": "Marra",
+      "apellido": ["marra"],
+      "grupo": 13
+  },
+  {
+      "nombreCompleto": "Judith Nazario",
+      "primerNombreDefault": "Judith",
+      "primerNombre": ["judith", "titi judith"],
+      "apellidoDefault": "Nazario",
+      "apellido": ["nazario", "nazario gonzalez"],
+      "grupo": 13
+  },
+  {
+      "nombreCompleto": "Andre Marra",
+      "primerNombreDefault": "Andre",
+      "primerNombre": ["andre"],
+      "apellidoDefault": "Marra",
+      "apellido": ["marra", "marra nazario"],
+      "grupo": 13
+  },
+  {
+      "nombreCompleto": "Carlo Andre Marra",
+      "primerNombreDefault": "Carlo Andre",
+      "primerNombre": ["carlo", "carlo andre"],
+      "apellidoDefault": "Marra",
+      "apellido": ["marra", "marra nazario"],
+      "grupo": 13
+  },
+  {
+      "nombreCompleto": "Monica Morales",
+      "primerNombreDefault": "Monica",
+      "primerNombre": ["monica"],
+      "apellidoDefault": "Morales",
+      "apellido": ["morales"],
+      "grupo": 13
+  },
+  {
+      "nombreCompleto": "Jose Morales",
+      "primerNombreDefault": "Jose",
+      "primerNombre": ["jose"],
+      "apellidoDefault": "Morales",
+      "apellido": ["morales"],
+      "grupo": 14
+  },
+  {
+      "nombreCompleto": "Maria Morales",
+      "primerNombreDefault": "Maria",
+      "primerNombre": ["meri", "titi meri", "maria"],
+      "apellidoDefault": "Morales",
+      "apellido": ["morales", "morales marra"],
+      "grupo": 14
+  },
+  {
+      "nombreCompleto": "Fifina Gonzalez",
+      "primerNombreDefault": "Fifina",
+      "primerNombre": ["fifina", "josefina"],
+      "apellidoDefault": "Gónzalez",
+      "apellido": ["gonzalez", "gónzalez"],
+      "grupo": 15
+  },
+  {
+      "nombreCompleto": "Ricardo Diaz",
+      "primerNombreDefault": "Ricardo",
+      "primerNombre": ["ricardo"],
+      "apellidoDefault": "Diaz",
+      "apellido": ["diaz"],
+      "grupo": 15
+  },
+  {
+      "nombreCompleto": "Carla Martinez",
+      "primerNombreDefault": "Carla",
+      "primerNombre": ["carla"],
+      "apellidoDefault": "Martinez",
+      "apellido": ["martinez"],
+      "grupo": 15
+  },
+  {
+      "nombreCompleto": "Angie De Jesus",
+      "primerNombreDefault": "Angie",
+      "primerNombre": ["angie", "titi angie"],
+      "apellidoDefault": "De Jesus",
+      "apellido": ["de jesus"],
+      "grupo": 16
+  },
+  {
+      "nombreCompleto": "Samuel Crespo",
+      "primerNombreDefault": "Samuel",
+      "primerNombre": ["sami", "tio sami", "samuel"],
+      "apellidoDefault": "Crespo",
+      "apellido": ["crespo"],
+      "grupo": 16
+  },
+  {
+      "nombreCompleto": "Luis Manuel Marra",
+      "primerNombreDefault": "Luis Manuel",
+      "primerNombre": ["luis", "luis manuel", "luisma"],
+      "apellidoDefault": "Marra",
+      "apellido": ["marra"],
+      "grupo": 17
+  },
+  {
+      "nombreCompleto": "Carolina Urrutia",
+      "primerNombreDefault": "Carolina",
+      "primerNombre": ["carolina"],
+      "apellidoDefault": "Urrutia",
+      "apellido": ["urrutia", "urrutia gonzalez", "gonzalez urrutia"],
+      "grupo": 18
+  },
+  {
+      "nombreCompleto": "Javier Gonzalez",
+      "primerNombreDefault": "Javier",
+      "primerNombre": ["javier", "javi"],
+      "apellidoDefault": "Gonzalez",
+      "apellido": ["gonzalez", "gonzalez castro", "gonzalez urrutia"],
+      "grupo": 18
+  },
+  {
+      "nombreCompleto": "Jorge Gonzalez",
+      "primerNombreDefault": "Jorge",
+      "primerNombre": ["jorge"],
+      "apellidoDefault": "Gonzalez",
+      "apellido": ["gonzalez", "gonzalez castro", "gonzalez lancaon"],
+      "grupo": 19
+  },
+  {
+      "nombreCompleto": "Rebecca Cruz Lancaon",
+      "primerNombreDefault": "Rebecca",
+      "primerNombre": ["rebecca"],
+      "apellidoDefault": "Cruz Lancaon",
+      "apellido": ["gonzalez lancaon", "lancaon", "cruz lancaon"],
+      "grupo": 19
+  },
+  {
+      "nombreCompleto": "Nadja Merly Vicenty",
+      "primerNombreDefault": "Nadja",
+      "primerNombre": ["nadja"],
+      "apellidoDefault": "Merly Vicenty",
+      "apellido": ["merly vicenty", "vicenty"],
+      "grupo": 20
+  },
+  {
+      "nombreCompleto": "Mirza Carrillo",
+      "primerNombreDefault": "Mirza",
+      "primerNombre": ["mirza"],
+      "apellidoDefault": "Carrillo",
+      "apellido": ["carrillo"],
+      "grupo": 21
+  },
+  {
+      "nombreCompleto": "Orlando Burgos",
+      "primerNombreDefault": "Orlando",
+      "primerNombre": ["orlando"],
+      "apellidoDefault": "Burgos",
+      "apellido": ["burgos", "burgos carattini"],
+      "grupo": 21
+  },
+  {
+      "nombreCompleto": "Edna Pacheco",
+      "primerNombreDefault": "Edna",
+      "primerNombre": ["edna"],
+      "apellidoDefault": "Pacheco",
+      "apellido": ["pacheco"],
+      "grupo": 22
+  },
+  {
+      "nombreCompleto": "Roame Torres",
+      "primerNombreDefault": "Roame",
+      "primerNombre": ["roame"],
+      "apellidoDefault": "Torres",
+      "apellido": ["torres", "torres gonzalez"],
+      "grupo": 22
+  },
+  {
+      "nombreCompleto": "Sarah Chiarot",
+      "primerNombreDefault": "Sarah",
+      "primerNombre": ["sarah"],
+      "apellidoDefault": "Chiarot",
+      "apellido": ["chiarot"],
+      "grupo": 23
+  },
+  {
+      "nombreCompleto": "Jean Bentley",
+      "primerNombreDefault": "Jean",
+      "primerNombre": ["jean"],
+      "apellidoDefault": "Bentley",
+      "apellido": ["bentley"],
+      "grupo": 24
+  },
+  {
+      "nombreCompleto": "Anna Jimenez Lyle",
+      "primerNombreDefault": "Anna",
+      "primerNombre": ["anna"],
+      "apellidoDefault": "Jimenez Lyle",
+      "apellido": ["lyle", "jimenez lyle"],
+      "grupo": 25
+  },
+  {
+      "nombreCompleto": "Tyler Lyle",
+      "primerNombreDefault": "Tyler",
+      "primerNombre": ["tyler"],
+      "apellidoDefault": "Lyle",
+      "apellido": ["lyle", "jimenez lyle"],
+      "grupo": 25
+  },
+  {
+      "nombreCompleto": "Sharon Yi",
+      "primerNombreDefault": "Sharon",
+      "primerNombre": ["sharon"],
+      "apellidoDefault": "Yi",
+      "apellido": ["yi"],
+      "grupo": 26
+  },
+  {
+      "nombreCompleto": "Daniel Chun",
+      "primerNombreDefault": "Daniel",
+      "primerNombre": ["daniel"],
+      "apellidoDefault": "Chun",
+      "apellido": ["chun"],
+      "grupo": 26
+  },
+  {
+      "nombreCompleto": "Sean Williams",
+      "primerNombreDefault": "Sean",
+      "primerNombre": ["sean"],
+      "apellidoDefault": "Williams",
+      "apellido": ["williams"],
+      "grupo": 27
+  },
+  {
+      "nombreCompleto": "Gem Padamada",
+      "primerNombreDefault": "Gem",
+      "primerNombre": ["gem"],
+      "apellidoDefault": "Padamada",
+      "apellido": ["padamada"],
+      "grupo": 28
+  },
+  {
+      "nombreCompleto": "Sean",
+      "primerNombreDefault": "Sean",
+      "primerNombre": ["sean"],
+      "apellidoDefault": "Blanche",
+      "apellido": ["blanche"],
+      "grupo": 28
+  },
+  {
+      "nombreCompleto": "Claire Hapke",
+      "primerNombreDefault": "Claire",
+      "primerNombre": ["claire"],
+      "apellidoDefault": "Hapke",
+      "apellido": ["hapke"],
+      "grupo": 29
+  },
+  {
+      "nombreCompleto": "Gleicy Gonzalez",
+      "primerNombreDefault": "Gleicy",
+      "primerNombre": ["gleicy"],
+      "apellidoDefault": "Gonzalez",
+      "apellido": ["gonzalez"],
+      "grupo": 30
+  },
+  {
+      "nombreCompleto": "Guillermo Gonzalez",
+      "primerNombreDefault": "Guillermo",
+      "primerNombre": ["guille", "guillermo"],
+      "apellidoDefault": "Gonzalez",
+      "apellido": ["gonzalez", "gonzalez castro"],
+      "grupo": 30
+  },
+  {
+      "nombreCompleto": "Lourdes Franco",
+      "primerNombreDefault": "Lourdes",
+      "primerNombre": ["lourdes"],
+      "apellidoDefault": "Franco",
+      "apellido": ["franco"],
+      "grupo": 31
+  },
+  {
+      "nombreCompleto": "Alex Moore",
+      "primerNombreDefault": "Alex",
+      "primerNombre": ["alex", "alexander", "mosef"],
+      "apellidoDefault": "Moore",
+      "apellido": ["moore"],
+      "grupo": 32
+  },
+  {
+      "nombreCompleto": "Juan Carlos Vazquez",
+      "primerNombreDefault": "Juan Carlos",
+      "primerNombre": ["juan", "juan carlos", "papi"],
+      "apellidoDefault": "Vazquez",
+      "apellido": ["vazquez"],
+      "grupo": 33
+  },
+  {
+      "nombreCompleto": "Maribel Ortiz",
+      "primerNombreDefault": "Maribel",
+      "primerNombre": ["maribel", "mari", "mamita"],
+      "apellidoDefault": "Ortiz",
+      "apellido": ["ortiz"],
+      "grupo": 33
+  },
+  {
+      "nombreCompleto": "Mariela Vazquez",
+      "primerNombreDefault": "Mariela",
+      "primerNombre": ["mariela", "cookie"],
+      "apellidoDefault": "Vazquez",
+      "apellido": ["vazquez"],
+      "grupo": 33
+  },
+  {
+      "nombreCompleto": "Pedro",
+      "primerNombreDefault": "Pedro",
+      "primerNombre": ["pedro"],
+      "apellidoDefault": "Montenegro",
+      "apellido": ["montenegro"],
+      "grupo": 33
+  },
+  {
+      "nombreCompleto": "Pawy Alvarado",
+      "primerNombreDefault": "Pawy",
+      "primerNombre": ["pawy"],
+      "apellidoDefault": "Pawy",
+      "apellido": ["pawy"],
+      "grupo": 34
+  },
+  {
+      "nombreCompleto": "Xavier Lopez",
+      "primerNombreDefault": "Xavier",
+      "primerNombre": ["xavier"],
+      "apellidoDefault": "Lopez",
+      "apellido": ["xavier"],
+      "grupo": 35
+  },
+  {
+      "nombreCompleto": "Charlene Almeida",
+      "primerNombreDefault": "Charlene",
+      "primerNombre": ["charlene"],
+      "apellidoDefault": "Almeida",
+      "apellido": ["almeida"],
+      "grupo": 35
+  },
+  {
+      "nombreCompleto": "Alvaro Calderon",
+      "primerNombreDefault": "Alvaro",
+      "primerNombre": ["alvaro"],
+      "apellidoDefault": "Calderon",
+      "apellido": ["calderon"],
+      "grupo": 36
+  },
+  {
+      "nombreCompleto": "Yolian Amaro Rivera",
+      "primerNombreDefault": "Yolian",
+      "primerNombre": ["yolian"],
+      "apellidoDefault": "Amaro Rivera",
+      "apellido": ["amaro rivera", "amaro-rivera"],
+      "grupo": 36
+  },
+  {
+      "nombreCompleto": "Alejandro Makarem",
+      "primerNombreDefault": "Alejandro",
+      "primerNombre": ["alejandro"],
+      "apellidoDefault": "Makarem",
+      "apellido": ["makarem"],
+      "grupo": 37
+  },
+  {
+      "nombreCompleto": "Jackie DeHoney",
+      "primerNombreDefault": "Jackie",
+      "primerNombre": ["jackie"],
+      "apellidoDefault": "DeHoney",
+      "apellido": ["dehoney"],
+      "grupo": 37
+  },
+  {
+      "nombreCompleto": "Ishbel Harrison",
+      "primerNombreDefault": "Ishbel",
+      "primerNombre": ["ishbel", "puchi", "titi"],
+      "apellidoDefault": "Harrison",
+      "apellido": ["harrison", "irizarry"],
+      "grupo": 38
+  },
+  {
+      "nombreCompleto": "Todd Harrison",
+      "primerNombreDefault": "Todd",
+      "primerNombre": ["todd"],
+      "apellidoDefault": "Harrison",
+      "apellido": ["harrison"],
+      "grupo": 38
+  },
+  {
+      "nombreCompleto": "Orlando Carrasquillo",
+      "primerNombreDefault": "Orlando",
+      "primerNombre": ["orlando"],
+      "apellidoDefault": "Carrasquillo",
+      "apellido": ["carrasquillo"],
+      "grupo": 38
+  },
+  {
+      "nombreCompleto": "Sofia Carrasquillo",
+      "primerNombreDefault": "Sofia",
+      "primerNombre": ["sofia"],
+      "apellidoDefault": "Carrasquillo",
+      "apellido": ["carrasquillo"],
+      "grupo": 38
+  },
+  {
+      "nombreCompleto": "Aimee De La Osa",
+      "primerNombreDefault": "Aimee",
+      "primerNombre": ["aimee"],
+      "apellidoDefault": "De La Osa",
+      "apellido": ["de la osa"],
+      "grupo": 39
+  },
+  {
+      "nombreCompleto": "David De La Osa",
+      "primerNombreDefault": "David",
+      "primerNombre": ["david", "honey"],
+      "apellidoDefault": "De La Osa",
+      "apellido": ["de la osa"],
+      "grupo": 39
+  },
+  {
+      "nombreCompleto": "Emelina Irizarry",
+      "primerNombreDefault": "Emelina",
+      "primerNombre": ["emi", "emelina", "madrina"],
+      "apellidoDefault": "Irizarry",
+      "apellido": ["irizarry"],
+      "grupo": 40
+  },
+  {
+      "nombreCompleto": "Katherine Rodriguez",
+      "primerNombreDefault": "Katherine",
+      "primerNombre": ["katherine"],
+      "apellidoDefault": "Rodriguez",
+      "apellido": ["rodriguez"],
+      "grupo": 40
+  },
+  {
+      "nombreCompleto": "Juan Ubiñas",
+      "primerNombreDefault": "Juan",
+      "primerNombre": ["juan"],
+      "apellidoDefault": "Ubiñas",
+      "apellido": ["ubiñas"],
+      "grupo": 41
+  },
+  {
+      "nombreCompleto": "Cathy Ubiñas",
+      "primerNombreDefault": "Cathy",
+      "primerNombre": ["cathy"],
+      "apellidoDefault": "Ubiñas",
+      "apellido": ["ubiñas"],
+      "grupo": 41
+  },
+  {
+      "nombreCompleto": "Jeannine Carrio",
+      "primerNombreDefault": "Jeannine",
+      "primerNombre": ["jeannine"],
+      "apellidoDefault": "Carrio",
+      "apellido": ["carrio"],
+      "grupo": 42
+  },
+  {
+      "nombreCompleto": "Victor Carrio",
+      "primerNombreDefault": "Victor",
+      "primerNombre": ["victor"],
+      "apellidoDefault": "Carrio",
+      "apellido": ["carrio"],
+      "grupo": 42
+  },
+  {
+      "nombreCompleto": "Karla Carrio",
+      "primerNombreDefault": "Karla",
+      "primerNombre": ["karla"],
+      "apellidoDefault": "Carrio",
+      "apellido": ["carrio"],
+      "grupo": 42
+  },
+  {
+      "nombreCompleto": "Alex Carrio",
+      "primerNombreDefault": "Alex",
+      "primerNombre": ["alex"],
+      "apellidoDefault": "Carrio",
+      "apellido": ["carrio"],
+      "grupo": 42
+  },
+  {
+      "nombreCompleto": "Michelle Kane",
+      "primerNombreDefault": "Michelle",
+      "primerNombre": ["michelle"],
+      "apellidoDefault": "Kane",
+      "apellido": ["kane"],
+      "grupo": 42
+  },
+  {
+      "nombreCompleto": "Yamilie Vazquez",
+      "primerNombreDefault": "Yamilie",
+      "primerNombre": ["yamilie"],
+      "apellidoDefault": "Vazquez",
+      "apellido": ["vazquez"],
+      "grupo": 43
+  },
+  {
+      "nombreCompleto": "Yamarie Colon",
+      "primerNombreDefault": "Yamarie",
+      "primerNombre": ["yamarie"],
+      "apellidoDefault": "Colon",
+      "apellido": ["colon"],
+      "grupo": 43
+  },
+  {
+      "nombreCompleto": "Janine Colon",
+      "primerNombreDefault": "Janine",
+      "primerNombre": ["janine"],
+      "apellidoDefault": "Colon",
+      "apellido": ["colon"],
+      "grupo": 43
+  },
+  {
+      "nombreCompleto": "Luis Ortiz",
+      "primerNombreDefault": "Luis",
+      "primerNombre": ["luis", "luis angel"],
+      "apellidoDefault": "Ortiz",
+      "apellido": ["ortiz"],
+      "grupo": 44
+  },
+  {
+      "nombreCompleto": "Wanda Ortiz",
+      "primerNombreDefault": "Wanda",
+      "primerNombre": ["wanda"],
+      "apellidoDefault": "Ortiz",
+      "apellido": ["ortiz"],
+      "grupo": 44
+  },
+  {
+      "nombreCompleto": "Rafael Montalvo",
+      "primerNombreDefault": "Rafael",
+      "primerNombre": ["rafael", "rafi"],
+      "apellidoDefault": "Montalvo",
+      "apellido": ["montalvo"],
+      "grupo": 45
+  },
+  {
+      "nombreCompleto": "Lourdes Marrero",
+      "primerNombreDefault": "Lourdes",
+      "primerNombre": ["lourdes"],
+      "apellidoDefault": "Marrero",
+      "apellido": ["marrero"],
+      "grupo": 45
+  },
+  {
+      "nombreCompleto": "Gloria Lebron",
+      "primerNombreDefault": "Gloria",
+      "primerNombre": ["lourdes"],
+      "apellidoDefault": "Lebron",
+      "apellido": ["lebron"],
+      "grupo": 46
+  },
+  {
+      "nombreCompleto": "Luis Pomales",
+      "primerNombreDefault": "Luis",
+      "primerNombre": ["luis"],
+      "apellidoDefault": "Pomales",
+      "apellido": ["pomales"],
+      "grupo": 47
+  },
+  {
+      "nombreCompleto": "Yajaira Santos",
+      "primerNombreDefault": "Yajaira",
+      "primerNombre": ["yajaira"],
+      "apellidoDefault": "Santos",
+      "apellido": ["santos"],
+      "grupo": 47
+  },
+  {
+      "nombreCompleto": "Ricardo Martin",
+      "primerNombreDefault": "Ricardo",
+      "primerNombre": ["ricardo"],
+      "apellidoDefault": "Martin",
+      "apellido": ["martin"],
+      "grupo": 48
+  },
+  {
+      "nombreCompleto": "Cristina Otaño",
+      "primerNombreDefault": "Cristina",
+      "primerNombre": ["cristina"],
+      "apellidoDefault": "Otaño",
+      "apellido": ["otaño", "otano"],
+      "grupo": 48
+  },
+  {
+      "nombreCompleto": "Roberto Bustillo",
+      "primerNombreDefault": "roberto",
+      "primerNombre": ["bustillo", "roberto"],
+      "apellidoDefault": "Bustillo",
+      "apellido": ["bustillo"],
+      "grupo": 49
+  },
+  {
+      "nombreCompleto": "Hector Jaca",
+      "primerNombreDefault": "Hector",
+      "primerNombre": ["hector"],
+      "apellidoDefault": "Jaca",
+      "apellido": ["jaca"],
+      "grupo": 50
+  },
+  {
+      "nombreCompleto": "Armando Serrano",
+      "primerNombreDefault": "Armando",
+      "primerNombre": ["armando"],
+      "apellidoDefault": "Serrano",
+      "apellido": ["serrano"],
+      "grupo": 51
+  },
+  {
+      "nombreCompleto": "Carlos Valle",
+      "primerNombreDefault": "Carlos",
+      "primerNombre": ["carlos"],
+      "apellidoDefault": "Valle",
+      "apellido": ["valle"],
+      "grupo": 51
+  }
+]
