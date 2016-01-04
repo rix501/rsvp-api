@@ -48,7 +48,7 @@
       "apellido": ["escobar"],
       "grupo": 2
   }, {
-      "nombreCompleto": "Zulma Gonzalez",
+      "nombreCompleto": "Susie Gonzalez Aquino",
       "primerNombreDefault": "Zulma",
       "primerNombre": ["susie", "titi susie"],
       "apellidoDefault": "Gonzalez",
@@ -105,9 +105,9 @@
   }, {
       "nombreCompleto": "Ron Hill",
       "primerNombreDefault": "Ron",
-      "primerNombre": ["ron", "ron"],
+      "primerNombre": ["ron"],
       "apellidoDefault": "hill",
-      "apellido": ["Hill"],
+      "apellido": ["hill"],
       "grupo": 5
   },
   {
@@ -202,7 +202,7 @@
       "primerNombreDefault": "Giselle",
       "primerNombre": ["giselle", "gigi"],
       "apellidoDefault": "O'Neill",
-      "apellido": ["o’neill"],
+      "apellido": ["o'neill", "oneill"],
       "grupo": 10
   },
   {
@@ -434,7 +434,7 @@
       "primerNombreDefault": "Anna",
       "primerNombre": ["anna"],
       "apellidoDefault": "Jimenez Lyle",
-      "apellido": ["lyle", "jimenez lyle"],
+      "apellido": ["jimenez", "lyle", "jimenez lyle"],
       "grupo": 25
   },
   {
@@ -550,7 +550,7 @@
       "grupo": 33
   },
   {
-      "nombreCompleto": "Pedro",
+      "nombreCompleto": "Pedro Montenegro",
       "primerNombreDefault": "Pedro",
       "primerNombre": ["pedro"],
       "apellidoDefault": "Montenegro",
@@ -568,7 +568,7 @@
   {
       "nombreCompleto": "Schwab E. López",
       "primerNombreDefault": "Xavier",
-      "primerNombre": ["xavier, schwab"],
+      "primerNombre": ["xavier", "schwab"],
       "apellidoDefault": "Lopez",
       "apellido": ["lopez", "lópez"],
       "grupo": 35
@@ -598,9 +598,9 @@
       "grupo": 36
   },
   {
-      "nombreCompleto": "Alejandro Makarem",
+      "nombreCompleto": "Du Lait Makarem",
       "primerNombreDefault": "Alejandro",
-      "primerNombre": ["alejandro"],
+      "primerNombre": ["alejandro", "dl", "du lait"],
       "apellidoDefault": "Makarem",
       "apellido": ["makarem"],
       "grupo": 37
@@ -792,7 +792,7 @@
   {
       "nombreCompleto": "Gloria Lebron",
       "primerNombreDefault": "Gloria",
-      "primerNombre": ["lourdes"],
+      "primerNombre": ["gloria"],
       "apellidoDefault": "Lebron",
       "apellido": ["lebron"],
       "grupo": 46

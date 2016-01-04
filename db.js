@@ -95,6 +95,11 @@ export function getGroupoByNombreAndApellido(primerNombre, apellido) {
 export function search(query = {}, grupoSearch = false) {
   const { primerNombre, apellido } = query;
 
+  if ( grupoSearch && (!primerNombre || !apellido) ) {
+    // group search needs both
+    return Promise.reject('Not Found');
+  }
+
   if (!!primerNombre && !!apellido) {
     return grupoSearch ?
       getGroupoByNombreAndApellido(primerNombre, apellido) :
@@ -105,8 +110,7 @@ export function search(query = {}, grupoSearch = false) {
     return searchApellido(apellido);
   }
 
-  // catch all for whatevs
-  return Promise.resolve({});
+  return Promise.reject('Not Found');
 }
 
 export function rsvp(grupoId, invitados, plusOnes = 0, beach = false) {
