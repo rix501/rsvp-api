@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import bodyParser from 'body-parser';
-import { createDB, getGrupo, search, rsvp } from './db';
+import { createDB, getGrupo, search, rsvp, getRsvps } from './db';
 
 const app = express();
 
@@ -26,6 +26,10 @@ app.get('/grupos/:id', (req, res) => {
   getGrupo(grupoID)
     .then(res.json.bind(res))
     .catch((err) => res.status(404).json({error: err}));
+});
+
+app.get('/rsvps', (req, res) => {
+  getRsvps().then(res.json.bind(res));
 });
 
 app.post('/rsvp', (req, res) => {

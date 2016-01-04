@@ -26,7 +26,7 @@ const RSVP = mongoose.model('RSVP', new Schema({
   id: { type: Number, index: true },
   plusOnes: Number,
   beach: Boolean,
-  invitados: [Schema.Types.ObjectId]
+  invitados: [String],
 }, { autoIndex: false }));
 
 export function createDB() {
@@ -113,17 +113,27 @@ export function search(query = {}, grupoSearch = false) {
   return Promise.reject('Not Found');
 }
 
-export function rsvp(grupoId, invitados, plusOnes = 0, beach = false) {
-  return RSVP
-  .update({
-    id: grupoId
-  }, {
-    id: grupoId,
-    invitados,
-    plusOnes,
-    beach
-  }, {
-    upsert: true
-  })
-  .then(() => ({ message: 'sucess' }), () => ({ message: 'error' }));
+export function getRsvps() {
+  return RSVP.find().exec();
+}
+
+export function rsvp(grupoId, ids, plusOnes = 0, beach = false) {
+  const promises = ids.map((id) => Invitado.findOne({ _id: id }).exec());
+
+  return Promise.all(promises)
+  .then((invitados) => invitados.map((invitado) => invitado.nombreCompleto))
+  .then((invitados) => {
+    return RSVP
+      .update({
+        id: grupoId
+      }, {
+        id: grupoId,
+        invitados,
+        plusOnes,
+        beach
+      }, {
+        upsert: true
+      })
+      .then(() => ({ message: 'sucess' }), () => ({ message: 'error' }));
+  });
 }
