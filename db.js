@@ -24,7 +24,6 @@ const Grupo = mongoose.model('Grupo', new Schema({
 
 const RSVP = mongoose.model('RSVP', new Schema({
   id: { type: Number, index: true },
-  plusOnes: Number,
   beach: Boolean,
   invitados: [String],
 }, { autoIndex: false }));
@@ -114,7 +113,29 @@ export function search(query = {}, grupoSearch = false) {
 }
 
 export function getRsvps() {
-  return RSVP.find().exec();
+  return Promise.all([
+    Grupo.find().exec(),
+    Invitado.find().exec(),
+    RSVP.find().exec()
+  ])
+  .then((result) => {
+    const [grupos, invitados, rsvps] = result;
+
+    return grupos.map((grupo) => {
+      const rsvpForGrupo = rsvps.find((r) => r.id === grupo.id) || {};
+      const invitadosInGrupo = invitados
+        .filter((invitado) => invitado.grupo === grupo.id)
+        .map((invitado) => invitado.nombreCompleto)
+        .join(', ');
+
+      return {
+        invitados: invitadosInGrupo,
+        invitadosGoing: rsvpForGrupo.invitados || '',
+        invitedToBeach: grupo.beach ? 'Yes' : 'No',
+        goingToBeach: rsvpForGrupo.beach ? 'Yes' : 'No'
+      };
+    });
+  });
 }
 
 export function rsvp(grupoId, ids, plusOnes = 0, beach = false) {
@@ -129,7 +150,6 @@ export function rsvp(grupoId, ids, plusOnes = 0, beach = false) {
       }, {
         id: grupoId,
         invitados,
-        plusOnes,
         beach
       }, {
         upsert: true

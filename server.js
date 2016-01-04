@@ -29,7 +29,39 @@ app.get('/grupos/:id', (req, res) => {
 });
 
 app.get('/rsvps', (req, res) => {
-  getRsvps().then(res.json.bind(res));
+  getRsvps().then((rsvps) => {
+    const rows = rsvps.map(({invitados, invitadosGoing, invitedToBeach, goingToBeach}) => {
+      return `
+        <tr>
+          <td>${invitados}</td>
+          <td>${invitadosGoing}</td>
+          <td>${invitedToBeach}</td>
+          <td>${goingToBeach}</td>
+        </tr>
+      `;
+    });
+
+    res.send(`
+        <style>
+          table {
+            border-collapse: collapse;
+          }
+
+          td, th {
+            border: 1px solid black;
+          }
+        </style>
+        <table>
+        <tr>
+        <th>Invitados</th>
+        <th>Invitados Going</th>
+        <th>Invited to beach?</th>
+        <th>Going to beach?</th>
+        </tr>
+        ${rows.join('')}
+        </table>
+    `);
+  });
 });
 
 app.post('/rsvp', (req, res) => {
