@@ -838,14 +838,6 @@
       "grupo": 49
   },
   {
-      "nombreCompleto": "Alguien Bustillo",
-      "primerNombreDefault": "roberto",
-      "primerNombre": ["bustillo", "roberto"],
-      "apellidoDefault": "Bustillo",
-      "apellido": ["bustillo"],
-      "grupo": 49
-  },
-  {
       "nombreCompleto": "Hector Jaca",
       "primerNombreDefault": "Hector",
       "primerNombre": ["hector"],
