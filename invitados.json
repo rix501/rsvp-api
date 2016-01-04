@@ -27,6 +27,13 @@
       "apellido": ["parenton"],
       "grupo": 1
   }, {
+      "nombreCompleto": "Charleigh Liang",
+      "primerNombreDefault": "Charleigh",
+      "primerNombre": ["charleigh"],
+      "apellidoDefault": "liang",
+      "apellido": ["liang"],
+      "grupo": 1
+  }, {
       "nombreCompleto": "Bianca Gónzalez",
       "primerNombreDefault": "Bianca",
       "primerNombre": ["bianca"],
@@ -555,15 +562,15 @@
       "primerNombreDefault": "Pawy",
       "primerNombre": ["pawy"],
       "apellidoDefault": "Pawy",
-      "apellido": ["pawy"],
+      "apellido": ["alvarado"],
       "grupo": 34
   },
   {
-      "nombreCompleto": "Xavier Lopez",
+      "nombreCompleto": "Schwab E. López",
       "primerNombreDefault": "Xavier",
-      "primerNombre": ["xavier"],
+      "primerNombre": ["xavier, schwab"],
       "apellidoDefault": "Lopez",
-      "apellido": ["xavier"],
+      "apellido": ["lopez", "lópez"],
       "grupo": 35
   },
   {
@@ -575,11 +582,11 @@
       "grupo": 35
   },
   {
-      "nombreCompleto": "Alvaro Calderon",
+      "nombreCompleto": "Alvaro Ricardo Jose Antonio Ezequiel Calderón",
       "primerNombreDefault": "Alvaro",
       "primerNombre": ["alvaro"],
-      "apellidoDefault": "Calderon",
-      "apellido": ["calderon"],
+      "apellidoDefault": "Calderón",
+      "apellido": ["calderon", "calderón"],
       "grupo": 36
   },
   {
@@ -587,7 +594,7 @@
       "primerNombreDefault": "Yolian",
       "primerNombre": ["yolian"],
       "apellidoDefault": "Amaro Rivera",
-      "apellido": ["amaro rivera", "amaro-rivera"],
+      "apellido": ["amaro", "amaro rivera", "amaro-rivera"],
       "grupo": 36
   },
   {
@@ -675,7 +682,7 @@
       "primerNombreDefault": "Juan",
       "primerNombre": ["juan"],
       "apellidoDefault": "Ubiñas",
-      "apellido": ["ubiñas"],
+      "apellido": ["ubinas", "ubiñas"],
       "grupo": 41
   },
   {
@@ -683,7 +690,7 @@
       "primerNombreDefault": "Cathy",
       "primerNombre": ["cathy"],
       "apellidoDefault": "Ubiñas",
-      "apellido": ["ubiñas"],
+      "apellido": ["ubinas", "ubiñas"],
       "grupo": 41
   },
   {
@@ -767,9 +774,9 @@
       "grupo": 44
   },
   {
-      "nombreCompleto": "Rafael Montalvo",
+      "nombreCompleto": "El Pollo Montalvo",
       "primerNombreDefault": "Rafael",
-      "primerNombre": ["rafael", "rafi"],
+      "primerNombre": ["rafael", "rafi", "pollo"],
       "apellidoDefault": "Montalvo",
       "apellido": ["montalvo"],
       "grupo": 45
@@ -793,7 +800,7 @@
   {
       "nombreCompleto": "Luis Pomales",
       "primerNombreDefault": "Luis",
-      "primerNombre": ["luis"],
+      "primerNombre": ["luis", "guillo"],
       "apellidoDefault": "Pomales",
       "apellido": ["pomales"],
       "grupo": 47
@@ -824,6 +831,14 @@
   },
   {
       "nombreCompleto": "Roberto Bustillo",
+      "primerNombreDefault": "roberto",
+      "primerNombre": ["bustillo", "roberto"],
+      "apellidoDefault": "Bustillo",
+      "apellido": ["bustillo"],
+      "grupo": 49
+  },
+  {
+      "nombreCompleto": "Alguien Bustillo",
       "primerNombreDefault": "roberto",
       "primerNombre": ["bustillo", "roberto"],
       "apellidoDefault": "Bustillo",

@@ -4,19 +4,19 @@
   "beach": false
 }, {
   "id": 1,
-  "plusOnes": 1,
-  "beach": false
+  "plusOnes": 0,
+  "beach": true
 }, {
   "id": 2,
   "plusOnes": 0,
   "beach": true
 }, {
   "id": 3,
-  "plusOnes": 1,
+  "plusOnes": 0,
   "beach": false
 }, {
   "id": 4,
-  "plusOnes": 1,
+  "plusOnes": 0,
   "beach": false
 }, {
   "id": 5,
@@ -37,7 +37,7 @@
 }, {
   "id": 9,
   "plusOnes": 0,
-  "beach": false
+  "beach": true
 }, {
   "id": 10,
   "plusOnes": 0,
@@ -45,7 +45,7 @@
 }, {
   "id": 11,
   "plusOnes": 0,
-  "beach": false
+  "beach": true
 }, {
   "id": 12,
   "plusOnes": 0,
@@ -93,31 +93,31 @@
 }, {
   "id": 23,
   "plusOnes": 0,
-  "beach": false
+  "beach": true
 }, {
   "id": 24,
   "plusOnes": 0,
-  "beach": false
+  "beach": true
 }, {
   "id": 25,
   "plusOnes": 0,
-  "beach": false
+  "beach": true
 }, {
   "id": 26,
   "plusOnes": 0,
-  "beach": false
+  "beach": true
 }, {
   "id": 27,
   "plusOnes": 0,
-  "beach": false
+  "beach": true
 }, {
   "id": 28,
   "plusOnes": 0,
-  "beach": false
+  "beach": true
 }, {
   "id": 29,
   "plusOnes": 0,
-  "beach": false
+  "beach": true
 }, {
   "id": 30,
   "plusOnes": 0,
@@ -129,7 +129,7 @@
 }, {
   "id": 32,
   "plusOnes": 0,
-  "beach": false
+  "beach": true
 }, {
   "id": 33,
   "plusOnes": 0,
@@ -141,15 +141,15 @@
 }, {
   "id": 35,
   "plusOnes": 0,
-  "beach": false
+  "beach": true
 }, {
   "id": 36,
   "plusOnes": 0,
-  "beach": false
+  "beach": true
 }, {
   "id": 37,
   "plusOnes": 0,
-  "beach": false
+  "beach": true
 }, {
   "id": 38,
   "plusOnes": 0,
