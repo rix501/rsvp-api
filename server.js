@@ -99,7 +99,6 @@ app.get('/rsvps', (req, res) => {
         </table>
 
         <h1>Totales:</h1>
-        <h2>Invitados total: ${totals.total}</h2>
         <h2>Invitados going: ${totals.going}</h2>
         <h2>Invitados not going: ${totals.notGoing}</h2>
         <h2>Invitados going to beach: ${totals.goingToBeach}</h2>
