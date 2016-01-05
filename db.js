@@ -122,17 +122,23 @@ export function getRsvps() {
     const [grupos, invitados, rsvps] = result;
 
     return grupos.map((grupo) => {
-      const rsvpForGrupo = rsvps.find((r) => r.id === grupo.id) || {};
+      const rsvpForGrupo = rsvps.find((r) => r.id === grupo.id);
       const invitadosInGrupo = invitados
         .filter((invitado) => invitado.grupo === grupo.id)
-        .map((invitado) => invitado.nombreCompleto)
-        .join(', ');
+        .map((invitado) => invitado.nombreCompleto);
+
+      const invitadosGoing = rsvpForGrupo ? rsvpForGrupo.invitados : [];
+      const rsvped = !!rsvpForGrupo;
+      const goingToBeach = rsvped ? (rsvpForGrupo.beach ? 'Yes' : 'No') : '-';
+      const isGoingToBeach = rsvped && rsvpForGrupo.beach;
 
       return {
         invitados: invitadosInGrupo,
-        invitadosGoing: rsvpForGrupo.invitados || '',
-        invitedToBeach: grupo.beach ? 'Yes' : 'No',
-        goingToBeach: rsvpForGrupo.beach ? 'Yes' : 'No'
+        invitadosGoing,
+        rsvped,
+        invitedToBeach: grupo.beach,
+        goingToBeach,
+        isGoingToBeach
       };
     });
   });

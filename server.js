@@ -30,16 +30,40 @@ app.get('/grupos/:id', (req, res) => {
 
 app.get('/rsvps', (req, res) => {
   getRsvps().then((rsvps) => {
-    const rows = rsvps.map(({invitados, invitadosGoing, invitedToBeach, goingToBeach}) => {
+    const rows = rsvps.map(({rsvped, invitados, invitadosGoing, invitedToBeach, goingToBeach}) => {
+      const going = rsvped && invitadosGoing.length;
+      const notGoing = rsvped && !invitadosGoing.length;
+      let className = '';
+      if (going) {
+        className = 'going';
+      } else if (notGoing) {
+        className = 'not-going';
+      }
+
+      const beachClass = invitedToBeach ? 'beach' : 'no-beach';
       return `
-        <tr>
-          <td>${invitados}</td>
-          <td>${invitadosGoing}</td>
-          <td>${invitedToBeach}</td>
-          <td>${goingToBeach}</td>
+        <tr class="${className}">
+          <td>${invitados.join(', ')}</td>
+          <td>${invitadosGoing.join(', ')}</td>
+          <td class="${beachClass}">${invitedToBeach ? goingToBeach : ''}</td>
         </tr>
       `;
     });
+
+    const totals = rsvps.reduce((all, next) => {
+      const {rsvped, invitados, invitadosGoing, isGoingToBeach } = next;
+      const { total, going, notGoing, goingToBeach } = all;
+      const invitadosL = invitados.length;
+      const invitadosGoingL = rsvped ? invitadosGoing.length : 0;
+      const invitadosNotGoingL = rsvped ? invitadosL - invitadosGoing.length : 0;
+
+      return Object.assign(all, {
+        total: total + invitadosL,
+        going: going + invitadosGoingL,
+        notGoing: notGoing + invitadosNotGoingL,
+        goingToBeach: isGoingToBeach ? (goingToBeach + invitadosGoingL) : goingToBeach
+      });
+    }, { total: 0, going: 0, notGoing: 0, goingToBeach: 0 });
 
     res.send(`
         <style>
@@ -49,17 +73,36 @@ app.get('/rsvps', (req, res) => {
 
           td, th {
             border: 1px solid black;
+            text-align: center;
+          }
+
+          .no-beach {
+            border: 0;
+            width: 100px;
+          }
+
+          .going {
+            background-color: #12DA12;
+          }
+
+          .not-going {
+            background-color: #FD3D3D;
           }
         </style>
         <table>
         <tr>
         <th>Invitados</th>
         <th>Invitados Going</th>
-        <th>Invited to beach?</th>
         <th>Going to beach?</th>
         </tr>
         ${rows.join('')}
         </table>
+
+        <h1>Totales:</h1>
+        <h2>Invitados total: ${totals.total}</h2>
+        <h2>Invitados going: ${totals.going}</h2>
+        <h2>Invitados not going: ${totals.notGoing}</h2>
+        <h2>Invitados going to beach: ${totals.goingToBeach}</h2>
     `);
   });
 });
