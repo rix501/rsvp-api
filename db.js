@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 import _ from 'lodash';
+import request from 'request';
 import invitadosJSON from './invitados.json';
 import gruposJSON from './grupos.json';
 
@@ -159,6 +160,15 @@ export function rsvp(grupoId, ids, plusOnes = 0, beach = false) {
         beach
       }, {
         upsert: true
+      })
+      .then(() => {
+        const url = 'https://maker.ifttt.com/trigger/paocardo_rsvp/with/key/c1RWT2mafZlqWXjlSRD1LD';
+        request({
+          method: 'post',
+          url,
+          json: true,
+          body: { value1: invitados }
+        });
       })
       .then(() => ({ message: 'sucess' }), () => ({ message: 'error' }));
   });
