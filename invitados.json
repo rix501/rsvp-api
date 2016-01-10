@@ -270,14 +270,6 @@
       "grupo": 13
   },
   {
-      "nombreCompleto": "Monica Morales",
-      "primerNombreDefault": "Monica",
-      "primerNombre": ["monica"],
-      "apellidoDefault": "Morales",
-      "apellido": ["morales"],
-      "grupo": 13
-  },
-  {
       "nombreCompleto": "Jose Morales",
       "primerNombreDefault": "Jose",
       "primerNombre": ["jose"],
